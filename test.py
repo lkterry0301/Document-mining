@@ -1,3 +1,4 @@
+#Lab1
 from bs4 import BeautifulSoup
 import nltk
 soup = BeautifulSoup(open("data/reut2-000.sgm"),"html.parser")
