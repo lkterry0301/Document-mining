@@ -1,8 +1,11 @@
 #Lab1
-from bs4 import BeautifulSoup
-import nltk
-soup = BeautifulSoup(open("data/reut2-000.sgm"),"html.parser")
 
+import nltk
+from nltk import stem
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(open("data/reut2-000.sgm"),"html.parser")
+stemmer = stem.porter.PorterStemmer() 
 Vocabulary = {}
 Freq = []
 #print soup.prettify()
@@ -16,6 +19,7 @@ for doc in soup.find_all("reuters"):
 		words = nltk.word_tokenize(doc.find("body").string)
 		for word in words:
 			word = word.lower()
+			word = stemmer.stem(word) #get words stemmed
 			if word not in freq:
 				if word not in Vocabulary:
 					Vocabulary[word] = 1
