@@ -1,5 +1,7 @@
 #Lab1
 
+#Another thing we forgot to add is the class labels as provided in the TOPICS and PLACES tabs of each article
+
 import nltk
 from nltk import stem
 from bs4 import BeautifulSoup
