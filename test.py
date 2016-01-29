@@ -32,17 +32,20 @@ for doc in soup.find_all("reuters"):
 				freq[word] += 1
 	Freq.append(freq)
 
-for key in Vocabulary:
-	print key
+for key in Vocabulary.keys():
+	if Vocabulary[key] == 1:
+		del Vocabulary[key]
+	else:
+		print key
 
 for freq in Freq:
 	vector = []
-	print freq
+	#print freq
 	for key in Vocabulary:
 		if key in freq:
 			vector.append(freq[key])
 		else:
 			vector.append(0)
-	print vector
+	#print vector
 
 
