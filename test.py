@@ -11,8 +11,6 @@ Vocabulary = {}
 Freq = []
 #print soup.prettify()
 
-<<<<<<< HEAD
-
 for doc in soup.find_all("reuters"):
 	id = doc.get("newid")
 	#print id
@@ -37,7 +35,7 @@ for key in Vocabulary.keys():
 		del Vocabulary[key]
 	else:
 		print key
-=======
+
 def get_word_frequency(soup):
     currentFreq=[]
     for doc in soup.find_all("reuters"):
@@ -70,7 +68,7 @@ for file in listdir(file_path):
     
 for key in Vocabulary:
 	print key
->>>>>>> ff36631a6d0e196b60528483d81d222910098a84
+
 
 for freq in Freq:
 	vector = []
