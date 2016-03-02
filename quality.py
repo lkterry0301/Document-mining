@@ -42,7 +42,8 @@ def cluster_centroid(one_cluster):
         centroid[j] = centroid[j] / len(one_cluster)
     
     return centroid
-    
+
+#Calculate radius within one cluster
 def cluster_radius(one_cluster, centroid):
     sum_distance = 0
     for vector in one_cluster:
@@ -50,22 +51,22 @@ def cluster_radius(one_cluster, centroid):
         
     radius=sum_distance/(2*len(one_cluster))
     return radius
-            
+    
+#Calculate SSE within one cluster            
 def cluster_SSE(one_cluster, centroid):
     SSE=0
     for vector in one_cluster:
-        SSE+=(distance.euclidean(vector,centroid))^2
+        SSE += pow((distance.euclidean(vector,centroid)),2)
     return SSE
     
 #prediction is predicted index of each data from clustering model
 #word_vector is feature vectors used in clustering
 #class_label_vector is the topic labels for each feature vector (article)
-
+#evaluate clustering quality based on clusters
 def quality_evaluation(prediction, word_vector, class_label_vector):
     
     #get n_cluster
     n_clusters = max(prediction)+1
-    print "Total number of clusters is "+str(n_clusters)
     
     #partition vector data into each cluster
     clustered_vector=[]
@@ -126,4 +127,8 @@ def quality_evaluation(prediction, word_vector, class_label_vector):
     #get average cluster SSE
     avg_SSE=sum(cluster_SSEs)/len(cluster_SSEs)
     print "Average SSE of cluster is : "+str(avg_SSE)
+    
+    #print total number of clusters
+    print ""
+    print "Total number of clusters is "+str(n_clusters)
         
